@@ -60,7 +60,7 @@ PRODUCT_COPY_FILES += \
 	device/lge/gee-common/ramdisk/init.qcom.rc:root/init.qcom.rc \
 	device/lge/gee-common/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
 	device/lge/gee-common/ramdisk/fstab.qcom:root/fstab.qcom \
-	device/lge/gee-common/ramdisk/twrp.fstab:root/etc/twrp.fstab \
+	device/lge/gee-common/ramdisk/twrp.fstab:recovery/root/etc/twrp.fstab \
 	device/lge/gee-common/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
 	device/lge/gee-common/conf/media_profiles.xml:system/etc/media_profiles.xml \
 	device/lge/gee-common/audio/media_codecs.xml:system/etc/media_codecs.xml \
@@ -189,7 +189,11 @@ PRODUCT_PACKAGES += \
 	hci_qcomm_init
 
 PRODUCT_PACKAGES += \
-	power.msm8960
+	power.qcom
+
+# QC Perf for Power HAL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=/system/lib/libqc-opt.so
 
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/ramdisk/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
